@@ -30,6 +30,11 @@
             "styles": [
               "src/styles.scss"
             ],
+          "stylePreprocessorOptions": {
+  "includePaths": [
+    "./node_modules/@ukho/styles/_colours"
+  ]
+} ,
             "scripts": []
           },
           "configurations": {
