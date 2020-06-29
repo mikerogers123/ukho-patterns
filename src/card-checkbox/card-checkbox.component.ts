@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardCheckboxComponent implements OnInit {
 
+  id = Date.now();
+
   constructor() { }
 
   ngOnInit(): void {
