@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CardCheckboxComponent } from 'src/card-checkbox/card-checkbox.component';
+import { ItemSelectionComponent } from 'src/item-selection/item-selection.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CardCheckboxComponent
+    CardCheckboxComponent,
+    ItemSelectionComponent
   ],
   imports: [
     BrowserModule,

@@ -2,18 +2,30 @@
   <div class="item-container">
     <div class="b-1">
       <div class="checkbox-wrapper">
-        <input type="checkbox" id="checkbox1" />
-        <label for="checkbox1"> </label>
+        <input type="checkbox" id="checkbox" />
+        <label for="checkbox"></label>
       </div>
     </div>
     <div class="b-2">
-      <h3>00000</h3>
-      <label>Subtitle</label>
-      <p class="values">Value</p>
+      <h3>
+        <ng-content select="[supporting-title]"></ng-content>
+      </h3>
+      <label>
+        <ng-content select="[supporting-subtitle]"></ng-content>
+      </label>
+      <p class="values">
+        <ng-content select="[supporting-content]"></ng-content>
+      </p>
     </div>
     <div class="b-3">
-      <h3>Title of card</h3>
-      <label>Subtitle two</label>
-      <p class="values">Value 2</p>
+      <h3>
+        <ng-content select="[primary-title]"></ng-content>
+      </h3>
+      <label>
+        <ng-content select="[primary-subtitle]"></ng-content>
+      </label>
+      <p class="values">
+        <ng-content select="[primary-content]"></ng-content>
+      </p>
     </div>
   </div>
