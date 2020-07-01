@@ -1,58 +1,34 @@
-import { Component, Input, Optional, Self } from '@angular/core';
-import { NgControl, ControlValueAccessor } from '@angular/forms';
+import { Component, Input, forwardRef } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 let nextId = 0;
 
 @Component({
   selector: 'app-card-checkbox',
   templateUrl: './card-checkbox.component.html',
-  styleUrls: ['./card-checkbox.component.scss']
+  styleUrls: ['./card-checkbox.component.scss'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => CardCheckboxComponent),
+      multi: true
+    }
+  ]
 })
 export class CardCheckboxComponent implements ControlValueAccessor {
-  checkboxId = `ukho-radio-${++nextId}`;
 
+  @Input() name: string;
+  @Input() checked = false;
   @Input() disabled = false;
+  @Input() value: any;
 
-  @Input() validationMessages: Record<string, string> = { required: 'This field is required' };
+  id = `ukho-checkbox-${++nextId}`;
 
-  /**
-   * The registered callback function called when an input event occurs on the input element.
-   */
-  public onChange = (value: unknown) => {};
+  onChange = (checked: boolean) => {};
 
-  /**
-   * The registered callback function called when a blur event occurs on the input element.
-   */
-  public onTouch = () => {};
+  onTouch = () => {};
 
-  constructor(@Optional() @Self() protected readonly controlDirective?: NgControl) {
-    if (controlDirective) {
-      controlDirective.valueAccessor = this;
-    }
-  }
-
-  get valid() {
-    return this.controlDirective && this.controlDirective.control.valid;
-  }
-
-  get touched() {
-    return this.controlDirective && this.controlDirective.control.touched;
-  }
-
-  get error() {
-    if (!(this.controlDirective && this.controlDirective.errors)) {
-      return null;
-    }
-
-    const errorKeys = Object.keys(this.controlDirective.errors);
-    const activeErrors = errorKeys.filter(errorKey => !!this.controlDirective.errors[errorKey]);
-    return activeErrors[0];
-  }
-  /**
-   * Registers a function called when the control value changes.
-   * Used by ReactiveForms to check for changes
-   */
-  registerOnChange(fn: (value: string) => void): void {
+  registerOnChange(fn: (checked: boolean) => void): void {
     this.onChange = fn;
   }
 
@@ -64,11 +40,7 @@ export class CardCheckboxComponent implements ControlValueAccessor {
     this.disabled = isDisabled;
   }
 
-  writeValue(value: unknown): void {
-    this.onChange(value);
-
-    if (this.controlDirective && this.controlDirective.control) {
-      this.controlDirective.control.updateValueAndValidity();
-    }
+  writeValue(value: any): void {
+    this.checked = !!value;
   }
 }

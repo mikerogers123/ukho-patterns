@@ -1,31 +1,38 @@
-
-  <div class="item-container">
-    <div class="b-1">
-      <div class="checkbox-wrapper">
-        <input type="checkbox" [id]="checkboxId" />
-        <label [for]="checkboxId"></label>
-      </div>
-    </div>
-    <div class="b-2">
-      <h3>
-        <ng-content select="[supporting-title]"></ng-content>
-      </h3>
-      <label>
-        <ng-content select="[supporting-subtitle]"></ng-content>
-      </label>
-      <p class="values">
-        <ng-content select="[supporting-content]"></ng-content>
-      </p>
-    </div>
-    <div class="b-3">
-      <h3>
-        <ng-content select="[primary-title]"></ng-content>
-      </h3>
-      <label>
-        <ng-content select="[primary-subtitle]"></ng-content>
-      </label>
-      <p class="values">
-        <ng-content select="[primary-content]"></ng-content>
-      </p>
+<div class="item-container">
+  <div class="b-1">
+    <div class="checkbox-wrapper">
+      <input
+        type="checkbox"
+        [id]="id"
+        [checked]="checked"
+        [name]="name"
+        [disabled]="disabled"
+        [value]="value"
+        (change)="onChange($event.target.checked)"
+      />
+      <label [for]="id"></label>
     </div>
   </div>
+  <div class="b-2">
+    <h3>
+      <ng-content select="[supporting-title]"></ng-content>
+    </h3>
+    <label>
+      <ng-content select="[supporting-subtitle]"></ng-content>
+    </label>
+    <p class="values">
+      <ng-content select="[supporting-content]"></ng-content>
+    </p>
+  </div>
+  <div class="b-3">
+    <h3>
+      <ng-content select="[primary-title]"></ng-content>
+    </h3>
+    <label>
+      <ng-content select="[primary-subtitle]"></ng-content>
+    </label>
+    <p class="values">
+      <ng-content select="[primary-content]"></ng-content>
+    </p>
+  </div>
+</div>

@@ -1,15 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-item-selection',
   templateUrl: './item-selection.component.html',
   styleUrls: ['./item-selection.component.scss']
 })
-export class ItemSelectionComponent implements OnInit {
+export class ItemSelectionComponent {
+  form: FormGroup;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor() {
+    this.form = new FormGroup({
+      isChecked1: new FormControl(true),
+      isChecked2: new FormControl(false),
+    });
   }
 
+  onSubmit() {
+    const val = this.form.value;
+  }
 }
