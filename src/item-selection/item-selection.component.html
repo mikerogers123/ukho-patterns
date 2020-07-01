@@ -1,27 +1,36 @@
+<!-- Page Content goes here -->
+
 <h1>Title</h1>
-<hr/>
+<hr />
 <p class="intro">Subtitle</p>
 
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
-    
-    <app-card-checkbox formControlName="isChecked1">
-        <span primary-title>Cell-GB-123456</span>
-        <span primary-subtitle>IC-ENC</span>
-        <span primary-content>I am a cell</span>
-        <span supporting-title>000000</span>
-        <span supporting-subtitle>UKHO</span>
-        <span supporting-content>Some more info</span>
-    </app-card-checkbox>
-    
-    <app-card-checkbox formControlName="isChecked2">
-        <span primary-title>Cell-GB-123456</span>
-        <span primary-subtitle>IC-ENC</span>
-        <span primary-content>I am a cell</span>
-        <span supporting-title>000000</span>
-        <span supporting-subtitle>UKHO</span>
-        <span supporting-content>Some more info</span>
-    </app-card-checkbox>
+<div class="row">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="mdc-layout-grid colours-grid">
+      <div class="mdc-layout-grid__inner layout-example">
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10">
+          <app-card-checkbox formControlName="isChecked1">
+            <span primary-title>Cell-GB-123456</span>
+            <span primary-subtitle>IC-ENC</span>
+            <span primary-content>I am a cell</span>
+            <span supporting-title>000000</span>
+            <span supporting-subtitle>UKHO</span>
+            <span supporting-content>Some more info</span>
+          </app-card-checkbox>
+        </div>
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10">
+          <app-card-checkbox formControlName="isChecked2">
+            <span primary-title>Cell-GB-123456</span>
+            <span primary-subtitle>IC-ENC</span>
+            <span primary-content>I am a cell</span>
+            <span supporting-title>000000</span>
+            <span supporting-subtitle>UKHO</span>
+            <span supporting-content>Some more info</span>
+          </app-card-checkbox>
+        </div>
+      </div>
+    </div>
 
     <button type="submit">Call to action</button>
-</form>
-
+  </form>
+</div>
