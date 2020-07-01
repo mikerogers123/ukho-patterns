@@ -4,11 +4,7 @@
       <input
         type="checkbox"
         [id]="id"
-        [checked]="checked"
-        [name]="name"
-        [disabled]="disabled"
-        [value]="value"
-        (change)="onChange($event.target.checked)"
+        [formControl]="formControl"
       />
       <label [for]="id"></label>
     </div>

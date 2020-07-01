@@ -1,5 +1,5 @@
 import { Component, Input, forwardRef } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormControl } from '@angular/forms';
 
 let nextId = 0;
 
@@ -17,30 +17,16 @@ let nextId = 0;
 })
 export class CardCheckboxComponent implements ControlValueAccessor {
 
-  @Input() name: string;
-  @Input() checked = false;
-  @Input() disabled = false;
-  @Input() value: any;
+  @Input() formControl: FormControl;
 
   id = `ukho-checkbox-${++nextId}`;
 
-  onChange = (checked: boolean) => {};
+  writeValue(obj: any) {  }
 
-  onTouch = () => {};
+  registerOnChange(fn: any) { }
 
-  registerOnChange(fn: (checked: boolean) => void): void {
-    this.onChange = fn;
-  }
+  registerOnTouched(fn: any) { }
 
-  registerOnTouched(fn: () => void): void {
-    this.onTouch = fn;
-  }
+  setDisabledState?(isDisabled: boolean) { }
 
-  setDisabledState(isDisabled: boolean): void {
-    this.disabled = isDisabled;
-  }
-
-  writeValue(value: any): void {
-    this.checked = !!value;
-  }
 }
