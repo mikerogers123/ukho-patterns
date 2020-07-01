@@ -1,10 +1,11 @@
-<div class="item-container">
+<div *ngIf="formControl" class="item-container">
   <div class="b-1">
     <div class="checkbox-wrapper">
       <input
         type="checkbox"
         [id]="id"
         [formControl]="formControl"
+        [class.is-disabled]="formControl.disabled"
       />
       <label [for]="id"></label>
     </div>
