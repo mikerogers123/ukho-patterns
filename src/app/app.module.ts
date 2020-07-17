@@ -7,6 +7,7 @@ import { CardCheckboxComponent } from 'src/card-checkbox/card-checkbox.component
 import { ItemSelectionComponent } from 'src/item-selection/item-selection.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PageDividerComponent } from '../page-divider/page-divider.component';
+import { ButtonModule } from '@ukho/components';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { PageDividerComponent } from '../page-divider/page-divider.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
